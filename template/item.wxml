@@ -1,0 +1,18 @@
+<template name="item">
+      <view class="item" >
+                <navigator url="/pages/detail/detail?id={{itcast.id}}">
+                    <image src="{{itcast.images.small}}" />
+                    <text>{{itcast.title}}</text>
+                    <text wx:if="{{itcast.rating.average==0}}" class="no-score">暂无评分</text>
+                    <view wx:else class="star-box">
+                        <!-- block 是微信提供给我们的一个占位标签,渲染之后页面上看不到 -->
+                        <block wx:for="{{itcast.starArr}}" wx:for-item="it">
+                            <image wx:if="{{it==1}}" src="/img/full.png" />
+                            <image wx:elif="{{it==3}}" src="/img/halfStar.jpg" />
+                            <image wx:else src="/img/empty.png" />
+                        </block>
+                        {{itcast.rating.average}}
+                    </view>
+                </navigator>
+            </view>
+</template>

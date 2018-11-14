@@ -1,0 +1,44 @@
+<!-- 导入抽取的模板1 顶部 -->
+<import src="/template/header.wxml" />
+<!-- 导入抽取的模板2 每一个电影小区域 -->
+<import src="/template/item.wxml" />
+<template is="header" />
+<!-- 电影区域 -->
+<view class="section">
+    <view class="title">
+        <text>影院热映</text>
+        <navigator url="/pages/list/list?tag=in_theaters">更多</navigator>
+    </view>
+    <scroll-view scroll-x>
+        <block wx:for="{{hotMovie}}" wx:key="{{itcast.id}}" wx:for-item="itcast">
+            <!-- 如果有数据传递 需要 额外的设置属性 -->
+            <template is="item" data="{{itcast}}" />
+        </block>
+    </scroll-view>
+</view>
+<!-- 即将上映 -->
+<view class="section">
+    <view class="title">
+        <text>即将上映</text>
+        <navigator url="/pages/list/list?tag=coming_soon">更多</navigator>
+    </view>
+    <scroll-view scroll-x>
+        <block wx:for="{{comingMovie}}" wx:key="{{itcast.id}}" wx:for-item="itcast">
+            <!-- 如果有数据传递 需要 额外的设置属性 -->
+            <template is="item" data="{{itcast}}" />
+        </block>
+    </scroll-view>
+</view>
+<!-- top250 -->
+<view class="section">
+    <view class="title">
+        <text>吐血推荐</text>
+        <navigator url="/pages/list/list?tag=top250">更多</navigator>
+    </view>
+    <scroll-view scroll-x>
+        <block wx:for="{{goodMovie}}" wx:key="{{itcast.id}}" wx:for-item="itcast">
+            <!-- 如果有数据传递 需要 额外的设置属性 -->
+            <template is="item" data="{{itcast}}" />
+        </block>
+    </scroll-view>
+</view>
